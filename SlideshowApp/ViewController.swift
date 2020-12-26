@@ -25,6 +25,23 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // 遷移先のviewController取得
+        let secondViewController = segue.destination as! SecondViewController
+        
+        // 現在表示中の画像
+        let photoName = imageArray[numberOfPhoto]
+//        let image = UIImage(named: photoName)
+
+        // 遷移先のプロパティに設定
+//        secondViewController.imageView2.image = image
+        secondViewController.photoName = photoName
+    }
+    
+    @IBAction func unwind(_ segue: UIStoryboardSegue) {
+        
+    }
 
     @IBAction func nextButton(_ sender: UIButton) {
         numberOfPhoto += 1
@@ -93,12 +110,15 @@ class ViewController: UIViewController {
 //        imageView.image = image
     }
     
+    
     func showImage(numberOfPhoto: Int) {
         let photoName = imageArray[numberOfPhoto]
         let image = UIImage(named: photoName)
         
         imageView.image = image
     }
+    
+    
     
     
 }

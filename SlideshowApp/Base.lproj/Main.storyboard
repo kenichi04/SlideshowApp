@@ -15,13 +15,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="meal1.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="fi7-NU-bVw">
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="meal1.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="fi7-NU-bVw">
                                 <rect key="frame" x="87" y="144" width="240" height="240"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="fi7-NU-bVw" secondAttribute="height" multiplier="1:1" id="hWc-JN-KGD"/>
                                     <constraint firstAttribute="height" constant="240" id="kuG-uV-UYz"/>
                                     <constraint firstAttribute="width" constant="240" id="uQr-0f-Z5q"/>
                                 </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="HsR-ob-bwk" appends="YES" id="ado-zm-E0Q"/>
+                                </connections>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mZt-vX-3Ix">
                                 <rect key="frame" x="182" y="484" width="50" height="30"/>
@@ -78,6 +82,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="HsR-ob-bwk">
+                    <connections>
+                        <segue destination="Mra-ze-hMX" kind="show" id="ir3-CP-lj6"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="137.68115942028987" y="126.5625"/>
         </scene>
@@ -86,18 +95,21 @@
             <objects>
                 <viewController id="Mra-ze-hMX" customClass="SecondViewController" customModule="SlideshowApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7Zt-F6-rfS">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="meal1.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="aV3-L4-dY0">
-                                <rect key="frame" x="0.0" y="44" width="414" height="768"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="758"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OWC-2e-kll">
-                                <rect key="frame" x="100" y="812" width="214" height="50"/>
+                                <rect key="frame" x="100" y="758" width="214" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="zJT-JJ-Oi2"/>
                                 </constraints>
                                 <state key="normal" title="戻る"/>
+                                <connections>
+                                    <segue destination="dEb-83-cka" kind="unwind" unwindAction="unwind:" id="3yr-fg-FPQ"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -112,8 +124,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="taX-TV-qNx"/>
                     </view>
+                    <navigationItem key="navigationItem" id="flL-Sg-pB4"/>
+                    <connections>
+                        <outlet property="imageView2" destination="aV3-L4-dY0" id="daU-Dk-Jo8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AFe-vw-aND" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="dEb-83-cka" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="788" y="133"/>
         </scene>

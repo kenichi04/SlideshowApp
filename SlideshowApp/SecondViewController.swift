@@ -9,11 +9,19 @@
 import UIKit
 
 class SecondViewController: UIViewController {
-
+    @IBOutlet weak var imageView2: UIImageView!
+    var photoName = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        //print(photoName)
+        
+        let image = UIImage(named: photoName)
+        imageView2.image = image
+
     }
     
 
