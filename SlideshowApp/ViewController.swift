@@ -16,7 +16,7 @@ class ViewController: UIViewController {
     
     // 表示画像の番号
     var numberOfPhoto = 0
-    let imageArray = ["meal1", "meal2", "meal3"]
+    let imageArray = ["meal1.jpeg", "meal2.jpeg", "meal3.jpeg"]
     
     var timer: Timer!
 
@@ -32,11 +32,19 @@ class ViewController: UIViewController {
         
         // 現在表示中の画像
         let photoName = imageArray[numberOfPhoto]
-//        let image = UIImage(named: photoName)
 
         // 遷移先のプロパティに設定
-//        secondViewController.imageView2.image = image
         secondViewController.photoName = photoName
+        
+        // 遷移時にスライドショー停止する
+        nextBtn.isEnabled = true
+        backBtn.isEnabled = true
+        playBtn.setTitle("再生", for: .normal)
+        
+        if timer != nil {
+            timer.invalidate()
+            timer = nil
+        }
     }
     
     @IBAction func unwind(_ segue: UIStoryboardSegue) {
