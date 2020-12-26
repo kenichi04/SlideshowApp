@@ -31,10 +31,12 @@ class ViewController: UIViewController {
         if numberOfPhoto >= imageArray.count {
             numberOfPhoto = 0
         }
-        let photoName = imageArray[numberOfPhoto]
         
-        let image = UIImage(named: photoName)
-        imageView.image = image
+        showImage(numberOfPhoto: numberOfPhoto)
+        
+//        let photoName = imageArray[numberOfPhoto]
+//        let image = UIImage(named: photoName)
+//        imageView.image = image
         
     }
     
@@ -43,10 +45,12 @@ class ViewController: UIViewController {
         if numberOfPhoto < 0 {
             numberOfPhoto = imageArray.count - 1
         }
-        let photoName = imageArray[numberOfPhoto]
         
-        let image = UIImage(named: photoName)
-        imageView.image = image
+        showImage(numberOfPhoto: numberOfPhoto)
+        
+//        let photoName = imageArray[numberOfPhoto]
+//        let image = UIImage(named: photoName)
+//        imageView.image = image
     }
     
     @IBAction func playButton(_ sender: UIButton) {
@@ -81,12 +85,20 @@ class ViewController: UIViewController {
         if numberOfPhoto >= imageArray.count {
             numberOfPhoto = 0
         }
-        let photoName = imageArray[numberOfPhoto]
         
-        let image = UIImage(named: photoName)
-        imageView.image = image
+        showImage(numberOfPhoto: numberOfPhoto)
+        
+//        let photoName = imageArray[numberOfPhoto]
+//        let image = UIImage(named: photoName)
+//        imageView.image = image
     }
     
+    func showImage(numberOfPhoto: Int) {
+        let photoName = imageArray[numberOfPhoto]
+        let image = UIImage(named: photoName)
+        
+        imageView.image = image
+    }
     
     
 }
