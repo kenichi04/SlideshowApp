@@ -37,13 +37,8 @@ class ViewController: UIViewController {
         secondViewController.photoName = photoName
         
         // 遷移時にスライドショー停止する
-        nextBtn.isEnabled = true
-        backBtn.isEnabled = true
-        playBtn.setTitle("再生", for: .normal)
-        
         if timer != nil {
-            timer.invalidate()
-            timer = nil
+            timerStop()
         }
     }
     
@@ -58,11 +53,6 @@ class ViewController: UIViewController {
         }
         
         showImage(numberOfPhoto: numberOfPhoto)
-        
-//        let photoName = imageArray[numberOfPhoto]
-//        let image = UIImage(named: photoName)
-//        imageView.image = image
-        
     }
     
     @IBAction func backButton(_ sender: UIButton) {
@@ -72,24 +62,12 @@ class ViewController: UIViewController {
         }
         
         showImage(numberOfPhoto: numberOfPhoto)
-        
-//        let photoName = imageArray[numberOfPhoto]
-//        let image = UIImage(named: photoName)
-//        imageView.image = image
     }
     
     @IBAction func playButton(_ sender: UIButton) {
         
         if timer != nil {
-            nextBtn.isEnabled = true
-            backBtn.isEnabled = true
-            playBtn.setTitle("再生", for: .normal)
-            
-            // タイマー・スライド停止処理
-            if timer != nil {
-                timer.invalidate()
-                timer = nil
-            }
+            timerStop()
             
         } else {
             nextBtn.isEnabled = false
@@ -112,10 +90,6 @@ class ViewController: UIViewController {
         }
         
         showImage(numberOfPhoto: numberOfPhoto)
-        
-//        let photoName = imageArray[numberOfPhoto]
-//        let image = UIImage(named: photoName)
-//        imageView.image = image
     }
     
     
@@ -126,7 +100,17 @@ class ViewController: UIViewController {
         imageView.image = image
     }
     
-    
+    func timerStop() {
+        nextBtn.isEnabled = true
+        backBtn.isEnabled = true
+        playBtn.setTitle("再生", for: .normal)
+        
+        // タイマー・スライド停止処理
+        if timer != nil {
+            timer.invalidate()
+            timer = nil
+        }
+    }
     
     
 }
